@@ -2,43 +2,24 @@
 
 require 'conn.php';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $name = $_POST['name'];
 $contact = $_POST['contact'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
+$confirmPass = $_POST['cpass'];
 $submit = $_POST['submit'];
 $str_pass = password_hash($pass,PASSWORD_BCRYPT);
 // $notification = false;
 $nameError = false;
 $notificationError = false;
+
 if(isset($submit)){
   $selectQ = "SELECT * FROM `user` WHERE name = '$name'";
   $select = mysqli_query($conn,$selectQ);
   $checkName = mysqli_num_rows($select);
-
+  
   // ======================
-  if($name !='' && $email != '' && $contact != '' && $pass !=''){
+  if($name !='' && $email != '' && $contact != '' && $pass !='' &&  $confirmPass !='' && $pass === $confirmPass){
     
     if(!$checkName ){
       $insertQ = "INSERT INTO `user`( `name`, `email`, `password`, `contact`) VALUES ('$name','$email','$str_pass','$contact')";
@@ -57,13 +38,20 @@ if(isset($submit)){
 
   if($name =='' && $email =='' && $contact == '' && $pass ==''){
 $notificationError = true;
+$passError  = false;
   }
+  // =====================
+
+  
   // =====================
 
 }
 
 
-
+if($pass != $confirmPass && $pass !='' && $confirmPass !=''){
+  $passError = true;
+  $notificationError = false;
+}
 
 
 
@@ -133,6 +121,17 @@ $notificationError = true;
       </div>
     </div>";
   }
+    if($passError){
+      echo "<div class='notification'>
+      <div class='message danger'>
+        <h2>failed!</h2>
+        <p>password does not match </p>
+      </div>
+      <div class='cross_icon'>
+        <i class='fa-solid fa-xmark'></i>
+      </div>
+    </div>";
+  }
 
     ?>
     <!-- notification -->
@@ -164,6 +163,7 @@ $notificationError = true;
             <h3>email</h3>
             <input type="email" name="email" id="email" placeholder="email" />
           </div>
+          
           <div class="row_right password_field">
             <h3>password</h3>
             <input
@@ -175,9 +175,22 @@ $notificationError = true;
             <i class="fa-solid fa-eye-slash eye_slash_hide"></i>
             <i id="eye_icon" class="fa-solid fa-eye"></i>
           </div>
+          
         </div>
         <!-- row -->
-
+        <div class="row">    
+          <div class="row_right password_field">
+            <h3>confirm password</h3>
+            <input
+              type="password"
+              name="cpass"
+              id="pass"
+              placeholder="confirm password"
+            />
+          </div>
+          
+        </div>
+        <!-- row -->
         <!-- row -->
         <div class="btn">
           <button type="submit" id="submit" name="submit" class="Submit_btn">

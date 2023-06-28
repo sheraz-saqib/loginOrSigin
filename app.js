@@ -2,6 +2,7 @@ const Username = document.getElementById("name"),
   contact = document.getElementById("contact"),
   email = document.getElementById("email"),
   pass = document.getElementById("pass"),
+  cpass = document.getElementById("cpass"),
   submitBtn = document.getElementById("submit"),
   form = document.getElementById("form"),
   eye_icon = document.getElementById("eye_icon"),
@@ -73,3 +74,6 @@ notification.forEach((crr)=>{
 
 
 })
+
+
+

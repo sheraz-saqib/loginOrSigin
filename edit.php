@@ -4,7 +4,7 @@ require 'conn.php';
 $id = $_GET['id'];
 // $notification = $_GET[false];
 // $trueNotif = $_GET[true];
-$selectQ = "SELECT `id`, `name`, `contact`, `email`, `password` FROM `user` WHERE id=$id;";
+$selectQ = "SELECT `id`, `name`, `contact`, `email` FROM `user` WHERE id=$id;";
 $select = mysqli_query($conn,$selectQ);
 $result = mysqli_fetch_array($select);
 
@@ -48,8 +48,8 @@ $result = mysqli_fetch_array($select);
         <!-- row -->
         <div class="row">
           <div class="row_left">
-            <h3>id</h3>
-            <input type="text" id="id" name="idUpdate" placeholder="id" readonly value="<?=$id?>">
+            <!-- <h3>id</h3> -->
+            <input hidden type="text" id="id" name="idUpdate" placeholder="id" readonly value="<?=$id?>">
           </div>
         </div>
         <!-- row -->
@@ -76,18 +76,6 @@ $result = mysqli_fetch_array($select);
           <div class="row_left">
             <h3>email</h3>
             <input type="email" name="emailUpdate" id="email" placeholder="email" value="<?=$result['email']?>"/>
-          </div>
-          <div class="row_right password_field">
-            <h3>password</h3>
-            <input
-              type="password"
-              name="passUpdate"
-              id="pass"
-              placeholder="password"
-              value="<?=$result['password']?>"
-            />
-            <i class="fa-solid fa-eye-slash eye_slash_hide"></i>
-            <i id="eye_icon" class="fa-solid fa-eye"></i>
           </div>
         </div>
         <!-- row -->

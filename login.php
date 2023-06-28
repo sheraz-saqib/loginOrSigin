@@ -5,12 +5,6 @@ require 'conn.php';
 
 
 session_start();
-
-
-
-
-
-
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 $submit = $_POST['submit'];
@@ -39,11 +33,25 @@ if(isset($submit)){
         $_SESSION['contact'] = $result[4];
         header('location:welcome.php');
 }
-if($email == ''  && $pass == '' && $email != $final_email && $pass != $check_pass)
+if($email == ''  && $pass == '')
 {
   $notification = true;
 }
+
+if( $VERIFY_PASS !== true ){
+  $loginError = true;
+  
 }
+
+
+if($notification){
+  $loginError = false;
+}
+if($loginError){
+  $notification = false;
+}
+}
+
 
 
 
@@ -78,7 +86,7 @@ if($email == ''  && $pass == '' && $email != $final_email && $pass != $check_pas
       </div>";
     }
 
-    if($notification){
+    if($loginError){
         echo "<div class='notification'>
         <div class='message danger'>
           <h2>failed!</h2>
@@ -89,6 +97,17 @@ if($email == ''  && $pass == '' && $email != $final_email && $pass != $check_pas
         </div>
       </div>";
     }
+    if($notification){
+      echo "<div class='notification'>
+      <div class='message danger'>
+        <h2>failed!</h2>
+        <p>Please fill out all feilds</p>
+      </div>
+      <div class='cross_icon'>
+        <i class='fa-solid fa-xmark'></i>
+      </div>
+    </div>";
+  }
     ?>
     <!-- notification -->
     <div class="container">
