@@ -1,3 +1,5 @@
+<style>
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
@@ -14,15 +16,35 @@ html {
 }
 
 body {
-    background-color: rgba(243, 243, 243, 0.863);
+    background-color: rgba(243, 243, 243, 0.863) !important;
 }
+body.welcome_body{
+    background-color: #0f0f0fe5 !important;
+}
+body.welcome_body header{
+    background-color: #1a1a1ae5 !important;
 
+}
+body.welcome_body header a{
+    color: rgb(228, 228, 228) !important;
+}
+body.welcome_body .drop_down {
+    background-color: #000 !important;
+ 
+}
+body.welcome_body i{
+    color: rgb(228, 228, 228) !important;
+}
+body.welcome_body .themeContainer{
+    background-color:  rgb(206, 205, 205) !important;
+    cursor: pointer;
+}
 a {
     color: #000000e5;
 }
 
 :root {
-    --theme-color: rgb(255, 0, 34);
+    --theme-color: rgb(9, 123, 189);
 }
 
 .header {
@@ -37,8 +59,15 @@ a {
     text-transform: capitalize;
     font-weight: 500;
     position: relative;
+    color: black;
 }
-
+.profile_li{
+    align-items: center;
+}
+.profile_li i{
+    margin-right: .3rem;
+    color: #000000e5;
+}
 .menu {
     display: flex;
     flex-direction: column;
@@ -60,6 +89,7 @@ a {
 .logo h2 {
     font-weight: 600;
     font-size: 1.8rem;
+    text-transform: lowercase !important ;
 }
 
 .header .navBar {
@@ -76,8 +106,14 @@ a {
     justify-content: space-between;
     /* max-width: 40rem;
     width: 100%; */
+    width: 74%;
 }
-
+.profile_li{
+    margin-right: 2rem;
+}
+.themeContainer{
+    margin-left: 0.5rem;
+}
 .links .nav_ul {
     display: flex;
     justify-content: space-between;
@@ -204,6 +240,39 @@ a {
 .other_components{
     margin-right: 4rem;
 }
+.themeContainer{
+    width: 4.3rem;
+    height: 2rem;
+    border-radius: 3rem;
+    background-color: rgb(230, 230, 230) ;
+    position: relative;
+    
+}
+.Themebtn{
+    width: inherit;
+    height: inherit;
+
+}
+.Themebtn input{
+    cursor: pointer !important;
+    appearance: none;
+    background-color: rgb(250, 250, 250);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+position: absolute;
+top: 50%;
+transform: translate(20%,-50%);
+/* left: 1.3rem; */
+transition: all .4s ease;
+outline: none;
+}
+.Themebtn  input:checked{
+    transform: translate(160%,-50%); 
+    background-color: rgb(95, 95, 95) !important;
+}
+
+
 section {
     width: 100%;
     height: 40rem;
@@ -228,7 +297,6 @@ section {
 
 
 
-
 @media only screen and (max-width:71.87em) {
     .links {
 
@@ -238,18 +306,30 @@ section {
 }
 
 @media only screen and (max-width:61.65em) {
+    body.welcome_body .links{
+        background-color: #1a1a1ae5;
+    }
+    body.welcome_body .drop_down   {
+        background-color: #1a1a1ae5 !important;
+    }
+    body.welcome_body .menu .line  {
+        background-color: #fdfdfde5 !important;
+    }
     .menu {
         display: block;
+        margin-top: .7rem;
     }
     .menu_active{
         position: relative;
     }
     .menu_active .line:nth-child(1){
         transform: rotate(46deg);
+        margin-top:  0.5rem;
     }
     .menu_active .line:nth-child(2){
         transform: rotate(-46deg);
         position: absolute;
+        margin-top:  0.5rem;
         top: 0;
     }
     .menu_active .line:nth-child(3){
@@ -258,23 +338,23 @@ section {
     .links {
         position: absolute;
         left: -10rem !important;
-        margin-top: 50rem;
+        margin-top: 62rem;
         background-color: white;
         width: 10rem;
-        min-height: 14rem;
+        min-height: 15rem;
         padding: 1rem;
         border-radius: .5rem;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
         transform: translateX(-50%);
-        transition: all .3s linear;
+        transition: all .2s linear;
     }
 
     .links_toggle {
         position: absolute;
         left: -10rem !important;
-        margin-top: 50rem;
+        margin-top: 62rem;
         background-color: white;
         width: 15rem;
         min-height: 14rem;
@@ -307,7 +387,7 @@ section {
     .nav_li {
         margin-bottom: 1rem;
         transform: translateX(-50%);
-        transition: all .3s linear;
+        transition: all .2s linear;
     }
 
     .nav_li_toggle {
@@ -371,4 +451,7 @@ section {
         margin-top: 6rem;
         margin-bottom: -4rem;
     }
+
+
 }
+</style>

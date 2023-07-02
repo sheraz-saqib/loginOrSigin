@@ -7,6 +7,7 @@ const Username = document.getElementById("name"),
   form = document.getElementById("form"),
   eye_icon = document.getElementById("eye_icon"),
   notification = document.querySelectorAll('.notification'),
+  themeInput = document.querySelector('#themeInput'),
   eye_slash = document.querySelector('.fa-eye-slash');
 
 // form.addEventListener("submit", (e) => {
@@ -74,6 +75,4 @@ notification.forEach((crr)=>{
 
 
 })
-
-
 

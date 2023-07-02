@@ -11,6 +11,7 @@ const drop_down_li = document.querySelectorAll('.drop_down_li'),
 
 
 
+console.log(themeInput);
 drop_down_li.forEach((crr)=>{
 
     let drop_down = crr.querySelector('.drop_down');
@@ -42,3 +43,6 @@ logout_btn.addEventListener('click',()=>{
         logout_btn.href='#';
     }
 })
+
+
+

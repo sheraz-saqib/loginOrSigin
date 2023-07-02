@@ -18,13 +18,33 @@ if(!$_SESSION['name'] && $_SESSION['name'] !=true ){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>welcome to my website</title>
-<link rel="stylesheet" href="nav.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<?php require 'navStyle.php';?>
 </head>
-<body>
+<body >
   <?php
   require './component/_nav.php';
 
   ?>
 </body>
 <script src="nav.js"></script>
+<script>
+  let themeInput = document.querySelector('#themeInput'),
+  themeContainer = document.querySelector('.Themebtn')
+ let body = document.querySelector('body')
+ console.log(themeContainer);
+themeInput.addEventListener('change',()=>{
+ 
+ if(!themeInput.checked){
+  body.classList.remove("welcome_body")
+ }else{
+
+   body.classList.add("welcome_body")
+ }
+
+})
+
+
+</script>
 </html>

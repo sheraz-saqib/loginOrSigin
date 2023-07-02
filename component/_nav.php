@@ -29,10 +29,11 @@ $data = mysqli_fetch_assoc($select);
     <!-- =================== -->
     <!-- logo -->
     <div class="logo">
-        <a href="#"><h2>company name</h2></a>
+        <a href="#"><h2>www.sheraz.com</h2></a>
     </div>
     <!-- logo -->
     <!-- links -->
+  
     <div class="links ">
     
         <ul class="nav_ul">
@@ -58,19 +59,20 @@ $data = mysqli_fetch_assoc($select);
 </div>
             </a></li>
         </ul>
-    </div>
-    <!-- links -->
-</nav>
-    <!-- ======================== -->
+            <!-- ======================== -->
     <div class="other_components">
+      
         <div class="shop_icon">
            
            <li class="nav_li drop_down_li res_drop_li "><a class="" href="#">
             <div class="profile_li">
 
-            <img src="./img/Profile-1.webp" alt="">profile
-
+                <i class='bx bxs-user-circle'></i>profile
+                <div class="themeContainer">
+                    <div class="Themebtn"><input type="checkbox"  name="" id="themeInput"></div>
+                 </div>
             </div>
+            
 <?php
 
 if($login){
@@ -86,7 +88,13 @@ if($login){
 ?>
             </a></li>
         </div>
+
+       
     </div>
+
+    </div>
+    <!-- links -->
+</nav>
 
 </header>
 
